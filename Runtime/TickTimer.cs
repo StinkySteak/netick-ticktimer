@@ -11,9 +11,10 @@ namespace StinkySteak.Netick.Timer
         public int EstablishedTick { get; private set; }
         public int TargetTick { get; private set; }
         public float TickDuration => TargetTick - EstablishedTick;
+        public bool IsRunning => TargetTick > 0;
         public static TickTimer None => default;
 
-        public float RemainingTick(NetworkSandbox sandbox)
+        public int RemainingTick(NetworkSandbox sandbox)
         {
             return TargetTick - sandbox.Tick.TickValue;
         }
@@ -55,11 +56,16 @@ namespace StinkySteak.Netick.Timer
         }
 
         /// <summary>
-        /// This method will compare if running tick has pass the target tick
+        /// This method will compare if running tick has pass the target tick <br/>
+        /// This will only works if the timer has been set
         /// </summary>
         public bool IsExpired(NetworkSandbox sandbox)
-        {
-            return RemainingTick(sandbox) <= 0;
-        }
+            => RemainingTick(sandbox) <= 0 && IsRunning;
+
+        /// <summary>
+        /// This method will compare if running tick has pass the target tick
+        /// </summary>
+        public bool IsExpiredOrNotRunning(NetworkSandbox sandbox)
+            => RemainingTick(sandbox) <= 0;
     }
 }
