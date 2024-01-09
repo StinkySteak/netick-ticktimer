@@ -1,6 +1,6 @@
 {
     "name": "com.stinkysteak.netick-timer",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "displayName": "Netick TickTimer",
     "description": "Efficient Networkable Timer for netick",
     "unity": "2021.3",
