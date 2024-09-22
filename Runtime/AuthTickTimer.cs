@@ -68,5 +68,25 @@ namespace StinkySteak.Netick.Timer
         /// </summary>
         public bool IsExpiredOrNotRunning(NetworkSandbox sandbox)
             => RemainingTick(sandbox) <= 0;
+
+        public float GetAlpha(NetworkSandbox sandbox)
+        {
+            int startTick = EstablishedTick;
+            int targetTick = TargetTick;
+
+            int currentTick = sandbox.Tick.TickValue;
+
+            int start = currentTick - startTick;
+            int end = targetTick - startTick;
+
+            float alpha = start / (float)end;
+
+            return alpha;
+        }
+
+        public float GetAlphaClamped(NetworkSandbox sandbox)
+        {
+            return Mathf.Clamp01(GetAlphaClamped(sandbox));
+        }
     }
 }
