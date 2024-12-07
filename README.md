@@ -2,10 +2,7 @@
 Netick is a state transfer Unity netcode.
 This TickTimer is inspired by Photon Fusion TickTimer
 
-TickTimer is a plugin wrapper to count if the tick we are targeting has been passed, rather than decrementing a float with deltaTime.
-
-## 0.1.1
-Please Use this version if your netick version is 0.9.7, otherwise use Netick TickTimer 0.1.0
+TickTimer is a plugin wrapper that counts if the tick we are targeting has been passed rather than decrementing a float with deltaTime.
 
 ### How to Use?
 ```csharp
@@ -21,7 +18,7 @@ public override void NetworkFixedUpdate()
 {
     if (_destroyTimer.IsExpired(Sandbox))
     {
-        _disableTimer = TickTimer.None;
+        _destroyTimer = TickTimer.None;
         Sandbox.Destroy(Object);
     }
 }
@@ -31,8 +28,8 @@ public override void NetworkFixedUpdate()
 | Timers             | Description                                                            |
 |--------------------|------------------------------------------------------------------------|
 | TickTimer          | Uses predictive tick if available. Most recommended way to sync timers |
-| AuthTickTimer      | Uses the server tick. Good for non predictive stuff                    |
-| PauseableTickTimer | Can be paused across network                                          |
+| AuthTickTimer      | Uses the server tick. Good for non-predictive stuff                    |
+| PauseableTickTimer | Can be paused across the network                                       |
 
 ### API Reference
 
