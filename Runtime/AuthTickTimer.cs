@@ -88,5 +88,10 @@ namespace StinkySteak.Netick.Timer
         {
             return Mathf.Clamp01(GetAlphaClamped(sandbox));
         }
+
+        public override string ToString()
+        {
+            return $"[AuthTickTimer] From: {EstablishedTick} To: {TargetTick}";
+        }
     }
 }

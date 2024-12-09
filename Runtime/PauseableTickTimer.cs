@@ -92,5 +92,10 @@ namespace StinkySteak.Netick.Timer
         {
             return Mathf.Clamp01(GetAlphaClamped(sandbox));
         }
+
+        public override string ToString()
+        {
+            return $"[PauseableTickTimer] From: {EstablishedTick} To: {TargetTick} Is Paused: {IsPaused}";
+        }
     }
 }
