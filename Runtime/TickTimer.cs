@@ -23,6 +23,17 @@ namespace StinkySteak.Netick.Timer
             return Mathf.Max(RemainingTick(sandbox) / (1 / sandbox.FixedDeltaTime), 0f);
         }
 
+        public float RemainingSecondSmoothed(NetworkSandbox sandbox)
+        {
+            float detailedRemainingTick = RemainingTick(sandbox) - sandbox.LocalInterpolation.Alpha;
+
+            float tickRate = 1f / sandbox.FixedDeltaTime;
+
+            float seconds = detailedRemainingTick / tickRate;
+
+            return seconds;
+        }
+
         /// <summary>
         /// Used to Create a Simple TickTimer by getting duration parameter
         /// </summary>
