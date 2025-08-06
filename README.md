@@ -2,7 +2,7 @@
 Netick is a state transfer Unity netcode.
 This TickTimer is inspired by Photon Fusion TickTimer
 
-TickTimer is a plugin wrapper that counts if the tick we are targeting has been passed rather than decrementing a float with deltaTime.
+TickTimer is a plugin wrapper that counts if the tick we are targeting has been passed, rather than decrementing a float with deltaTime.
 
 ### How to Use?
 ```csharp
@@ -37,6 +37,7 @@ public override void NetworkFixedUpdate()
 |-----------------------|----------------------------------------------------|
 | IsRunning             | Has a valid Target Tick                            |
 | IsExpired             | Has passed the target Tick                         |
-| IsExpiredOrNotRunning | Either Has passed the target Tick or it wasn't set |
+| IsExpiredOrNotRunning | Either has passed the target Tick, or it wasn't set |
 | GetAlpha              | Get the progress to the target tick                |
-| GetAlphaClamed        | Get the progress to the target tick (clamped to 1) |                                                                    |
+| GetAlphaClamped        | Get the progress to the target tick (clamped to 1) |                                                                    |
+
