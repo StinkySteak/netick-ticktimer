@@ -86,7 +86,7 @@ namespace StinkySteak.Netick.Timer
 
         public float GetAlphaClamped(NetworkSandbox sandbox)
         {
-            return Mathf.Clamp01(GetAlphaClamped(sandbox));
+            return Mathf.Clamp01(GetAlpha(sandbox));
         }
 
         public override string ToString()
